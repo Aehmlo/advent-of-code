@@ -26,6 +26,7 @@ fn main() {
 	do_the_solving_thing!(two);
 	do_the_solving_thing!(three);
 	do_the_solving_thing!(four);
+	do_the_solving_thing!(five);
 }
 
 trait Solvable {
