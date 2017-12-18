@@ -28,6 +28,7 @@ fn main() {
 	do_the_solving_thing!(four);
 	do_the_solving_thing!(five);
 	do_the_solving_thing!(six);
+	do_the_solving_thing!(seven);
 }
 
 trait Solvable {
@@ -47,8 +48,8 @@ pub trait Puzzle {
 }
 
 fn solve_puzzle<T : Puzzle>() {
-	let solution = T::solution();
 	println!("Puzzle {}:", T::index());
+	let solution = T::solution();
 	for sol in solution {
 		println!("{}", sol);
 	}
