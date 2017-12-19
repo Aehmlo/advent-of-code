@@ -30,6 +30,7 @@ fn main() {
 	do_the_solving_thing!(six);
 	do_the_solving_thing!(seven);
 	do_the_solving_thing!(eight);
+	do_the_solving_thing!(ten);
 }
 
 trait Solvable {
