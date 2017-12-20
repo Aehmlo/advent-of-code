@@ -59,7 +59,7 @@ impl CPU {
 	fn max(&self) -> i32 {
 		let registers = &self.registers;
 		let mut max = 0;
-		for (register, value) in registers {
+		for (_, value) in registers {
 			if *value > max {
 				max = *value;
 			}

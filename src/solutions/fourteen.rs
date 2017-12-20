@@ -5,7 +5,7 @@ pub struct Solution { }
 
 impl Solution { }
 
-
+#[allow(dead_code)]
 struct MemoryGrid {
 	size: usize,
 	base_hash: String,
@@ -58,6 +58,7 @@ impl MemoryGrid {
 		grid.squares.remove(0);
 		grid
 	}
+	#[allow(dead_code)]
 	fn print(&self) {
 		let rows = &self.squares;
 		for row in rows {

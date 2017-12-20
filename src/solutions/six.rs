@@ -1,5 +1,4 @@
 use Puzzle;
-use std::hash::Hash;
 use std::collections::HashMap;
 
 pub struct Solution { }

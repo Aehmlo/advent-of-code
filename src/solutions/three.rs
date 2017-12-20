@@ -33,7 +33,7 @@ impl Direction {
 pub struct Solution { }
 
 impl Solution {
-	fn findCenter(position: u32) -> u32 {
+	fn find_center(position: u32) -> u32 {
 		let mut relevant_factor = (position as f64).sqrt().ceil() as u32;
 		if relevant_factor % 2 == 0 { relevant_factor += 1; }
 		let mut closest_corner = 0;
@@ -48,7 +48,7 @@ impl Solution {
 		}
 		relevant_factor - (closest_corner - position) - 1
 	}
-	fn findGreater(input: u32) -> u32 {
+	fn find_greater(input: u32) -> u32 {
 		let mut grid = HashMap::new();
 		grid.insert((0, 0), 1);
 		let mut position = (0, 0);
@@ -57,12 +57,7 @@ impl Solution {
 		let mut direction = Direction::Right;
 		let mut directional_iterations = 0;
 		loop {
-			let mut delta = match direction {
-				Direction::Right => (1, 0),
-				Direction::Up => (0, 1),
-				Direction::Left => (-1, 0),
-				_ => (0, -1)
-			};
+			let mut delta = direction.delta();
 			position.0 += delta.0;
 			position.1 += delta.1;
 			let mut sum = 0;
@@ -97,14 +92,13 @@ impl Solution {
 				}
 			}
 		}
-		0
 	}
 }
 
 impl Puzzle for Solution {
 	fn solve(lines: Vec<&str>) -> Vec<u32> {
 		let input: Vec<u32> = lines.iter().map(|x| x.parse().unwrap()).collect();
-		vec!(Self::findCenter(input[0]), Self::findGreater(input[0]))
+		vec!(Self::find_center(input[0]), Self::find_greater(input[0]))
 	}
 	fn index() -> i8 {
 		3

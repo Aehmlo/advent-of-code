@@ -81,8 +81,6 @@ impl Puzzle for Solution {
 	fn solve(lines: Vec<&str>) -> Vec<u32> {
 		let directions = lines[0].split(",").map(|s| Direction::from(s)).collect();
 		let path = Position::follow(directions);
-		let path_length = path.len() - 1;
-		let last = &path[path_length];
 		let mut distances: Vec<u32> = path.iter().map(|n| n.distance_from_origin()).collect();
 		let mut max = 0;
 		let last: u32 = distances.pop().unwrap();
