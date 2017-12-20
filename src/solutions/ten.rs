@@ -5,14 +5,14 @@ pub struct Solution { }
 impl Solution {
 }
 
-struct Rope {
+pub struct Rope {
 	nodes: Vec<usize>,
 	skip: usize,
 	position: usize
 }
 
 impl Rope {
-	fn new(size: usize) -> Self {
+	pub fn new(size: usize) -> Self {
 		Rope {
 			nodes: (0..size).collect(),
 			skip: 0,
@@ -36,16 +36,16 @@ impl Rope {
 			n[(pos + i) % len] = nodes[i];
 		}
 	}
-	fn check(&self) -> usize {
+	pub fn check(&self) -> usize {
 		self.nodes[0] * self.nodes[1]
 	}
-	fn tie(&mut self, offsets: Vec<usize>) {
+	pub fn tie(&mut self, offsets: Vec<usize>) {
 		for offset in offsets {
 			self.knot(offset);
 			self.inc_position(offset);
 		}
 	}
-	fn dense_hash(&self) -> String {
+	pub fn dense_hash(&self) -> String {
 		let len = (self.nodes.len() as f32).sqrt() as usize;
 		let mut coll: Vec<u32> = vec!();
 		for i in 0..len {
@@ -55,7 +55,7 @@ impl Rope {
 			}
 			coll.push(hash as u32);
 		}
-		let them: Vec<String> = coll.iter().map(|x| format!("{:x}", x)).collect();
+		let them: Vec<String> = coll.iter().map(|x| format!("{:02x}", x)).collect();
 		return them.join("");
 	}
 }
