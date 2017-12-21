@@ -39,6 +39,7 @@ fn main() {
 	do_the_solving_thing!(sixteen);
 	do_the_solving_thing!(seventeen);
 	do_the_solving_thing!(eighteen);
+	do_the_solving_thing!(nineteen);
 }
 
 trait Solvable {
