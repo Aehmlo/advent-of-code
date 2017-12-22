@@ -43,6 +43,7 @@ fn main() {
 	do_the_solving_thing!(nineteen);
 	do_the_solving_thing!(twenty);
 	do_the_solving_thing!(twenty_one);
+	do_the_solving_thing!(twenty_two);
 }
 
 trait Solvable {
