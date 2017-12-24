@@ -1,0 +1,7 @@
+# Advent of Code
+
+This repository contains my solutions to [the 2017 Advent of Code challenge](https://adventofcode.com/2017). I took advantage of this opportunity to learn [Rust](https://rust-lang.org), so this code (particularly the early stuff) isn't always very idiomatic or efficient, but it turned out to be a great way to learn.
+
+Do whatever you want with the code, I guess. The hope is that this can be useful to somebody; it's not here for showing off or to be used commercially (if there's even a way to do that).
+
+I'm particularly proud of days [2](https://github.com/Aehmlo/advent-of-code/blob/master/src/solutions/two.rs), **[10](https://github.com/Aehmlo/advent-of-code/blob/master/src/solutions/ten.rs)**, [11](https://github.com/Aehmlo/advent-of-code/blob/master/src/solutions/eleven.rs), [12](https://github.com/Aehmlo/advent-of-code/blob/master/src/solutions/twelve.rs), [15](https://github.com/Aehmlo/advent-of-code/blob/master/src/solutions/fifteen.rs), [16](https://github.com/Aehmlo/advent-of-code/blob/master/src/solutions/sixteen.rs), [20](https://github.com/Aehmlo/advent-of-code/blob/master/src/solutions/twenty.rs), [21](https://github.com/Aehmlo/advent-of-code/blob/master/src/solutions/twenty_one.rs), and [22](https://github.com/Aehmlo/advent-of-code/blob/master/src/solutions/twenty_two.rs) (though they all contain code that I would now write differently).
