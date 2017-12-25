@@ -83,6 +83,7 @@ impl Solution {
 			rules
 		}
 	}
+
 	fn ruleset_from_block(block: &[&str]) -> (Value, Delta, State) {
 		let lines = block;
 		let (a, b, c) = (lines[0].split(" ").last().unwrap(), lines[1].split(" ").last().unwrap(), lines[2].split(" ").last().unwrap());
@@ -99,6 +100,7 @@ impl Solution {
 		};
 		(one, two, three)
 	}
+	
 	fn rulesets(block: &[&str]) -> (Ruleset, Ruleset) {
 		let (two, one) = (&block[1..4], &block[5..8]);
 		let (two, one) = (Solution::ruleset_from_block(two), Solution::ruleset_from_block(one));
