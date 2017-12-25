@@ -22,7 +22,7 @@ fn load_puzzle(index: i8) -> String {
 }
 
 fn main() {
-	do_the_solving_thing!(one);
+	/*do_the_solving_thing!(one);
 	do_the_solving_thing!(two);
 	do_the_solving_thing!(three);
 	do_the_solving_thing!(four);
@@ -45,7 +45,8 @@ fn main() {
 	do_the_solving_thing!(twenty_one);
 	do_the_solving_thing!(twenty_two);
 	do_the_solving_thing!(twenty_three);
-	do_the_solving_thing!(twenty_four);
+	do_the_solving_thing!(twenty_four);*/
+	do_the_solving_thing!(twenty_five);
 }
 
 trait Solvable {
