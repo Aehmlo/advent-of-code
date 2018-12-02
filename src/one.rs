@@ -28,7 +28,7 @@ where
 
 /// Run both parts of the simulation.
 pub fn simulate(input: &str) -> [i64; 2] {
-    let parsed = input.split("\n").filter_map(|v| v.parse::<i64>().ok());
+    let parsed = input.lines().filter_map(|v| v.parse::<i64>().ok());
     let first = part_one(parsed.clone());
     let second = part_two(parsed);
     [first, second]
