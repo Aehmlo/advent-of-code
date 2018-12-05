@@ -3,12 +3,13 @@ use clap::{App, Arg};
 
 extern crate advent_of_code as advent;
 
+use advent::five;
 use advent::four;
 use advent::one;
 use advent::three;
 use advent::two;
 
-const LATEST: usize = 4;
+const LATEST: usize = 5;
 
 fn solve(day: usize) {
     match day {
@@ -16,6 +17,7 @@ fn solve(day: usize) {
         2 => two::solve(),
         3 => three::solve(),
         4 => four::solve(),
+        5 => five::solve(),
         _ => unimplemented!(),
     }
 }
