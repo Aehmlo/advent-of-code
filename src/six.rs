@@ -14,7 +14,8 @@ pub fn points<'a>(iter: impl Iterator<Item = &'a str>) -> Vec<Point> {
         let mut parts = l.split(',').map(|c| c.trim().parse().unwrap());
         let point: Point = (parts.next().unwrap(), parts.next().unwrap());
         point
-    }).collect::<Vec<_>>()
+    })
+    .collect::<Vec<_>>()
 }
 
 /// Convenience method to get the bounding box of the grid.

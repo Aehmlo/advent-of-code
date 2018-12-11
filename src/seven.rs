@@ -72,7 +72,8 @@ pub fn steps(tree: &HashMap<Step, Vec<Step>>) -> String {
         .map(|s| {
             let c: char = s.into();
             c
-        }).collect()
+        })
+        .collect()
 }
 
 /// Represents a worker on the sleigh construction project.
