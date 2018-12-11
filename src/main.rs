@@ -3,6 +3,7 @@ use clap::{App, Arg};
 
 extern crate advent_of_code as advent;
 
+use advent::eight;
 use advent::five;
 use advent::four;
 use advent::one;
@@ -22,6 +23,7 @@ fn solve(day: usize) {
         5 => five::solve(),
         6 => six::solve(),
         7 => seven::solve(),
+        8 => eight::solve(),
         _ => unimplemented!(),
     }
 }
@@ -39,7 +41,8 @@ fn main() {
                 .help("Specifies the day for which to run the solution.")
                 .takes_value(true)
                 .multiple(true),
-        ).get_matches();
+        )
+        .get_matches();
     let days = matches.values_of("day").map(|i| i.collect::<Vec<_>>());
     if days.is_some() {
         for day in days.unwrap() {
