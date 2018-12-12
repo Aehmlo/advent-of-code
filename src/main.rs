@@ -6,13 +6,14 @@ extern crate advent_of_code as advent;
 use advent::eight;
 use advent::five;
 use advent::four;
+use advent::nine;
 use advent::one;
 use advent::seven;
 use advent::six;
 use advent::three;
 use advent::two;
 
-const LATEST: usize = 7;
+const LATEST: usize = 9;
 
 fn solve(day: usize) {
     match day {
@@ -24,6 +25,7 @@ fn solve(day: usize) {
         6 => six::solve(),
         7 => seven::solve(),
         8 => eight::solve(),
+        9 => nine::solve(),
         _ => unimplemented!(),
     }
 }
