@@ -12,11 +12,12 @@ use advent::one;
 use advent::seven;
 use advent::six;
 use advent::ten;
+use advent::thirteen;
 use advent::three;
 use advent::twelve;
 use advent::two;
 
-const LATEST: usize = 12;
+const LATEST: usize = 13;
 
 fn solve(day: usize) {
     match day {
@@ -32,6 +33,7 @@ fn solve(day: usize) {
         10 => ten::solve(),
         11 => eleven::solve(),
         12 => twelve::solve(),
+        13 => thirteen::solve(),
         _ => unimplemented!(),
     }
 }
