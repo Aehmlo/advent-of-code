@@ -12,6 +12,7 @@ use advent::fourteen;
 use advent::nine;
 use advent::one;
 use advent::seven;
+use advent::seventeen;
 use advent::six;
 use advent::sixteen;
 use advent::ten;
@@ -20,7 +21,7 @@ use advent::three;
 use advent::twelve;
 use advent::two;
 
-const LATEST: usize = 16;
+const LATEST: usize = 17;
 
 fn solve(day: usize) {
     match day {
@@ -40,6 +41,7 @@ fn solve(day: usize) {
         14 => fourteen::solve(),
         15 => fifteen::solve(),
         16 => sixteen::solve(),
+        17 => seventeen::solve(),
         _ => unimplemented!(),
     }
 }
