@@ -96,7 +96,7 @@ impl Simulation {
             for point in line {
                 print!("{}", point);
             }
-            println!("");
+            println!();
         }
     }
 }

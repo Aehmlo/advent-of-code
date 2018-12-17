@@ -1,7 +1,7 @@
 //! Day five (Alchemical Reduction)
 
 /// Returns whether a pair of monomers is reactive (will annihilate).
-pub fn pair_reacts(one: &char, other: &char) -> bool {
+pub fn pair_reacts(one: char, other: char) -> bool {
     one != other && one.to_ascii_lowercase() == other.to_ascii_lowercase()
 }
 
@@ -10,7 +10,7 @@ pub fn polymerize(structure: &str) -> String {
     let mut polymer = String::new();
     for c in structure.chars() {
         if let Some(l) = polymer.chars().last() {
-            if pair_reacts(&l, &c) {
+            if pair_reacts(l, c) {
                 polymer.pop();
             } else {
                 polymer.push(c);

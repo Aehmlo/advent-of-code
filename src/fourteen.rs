@@ -3,6 +3,7 @@
 type Score = usize;
 type Index = usize;
 
+#[derive(Clone, Copy)]
 enum Combined {
     Two(Score, Score),
     One(Score),

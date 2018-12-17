@@ -14,7 +14,7 @@ pub struct Vector {
 
 impl Vector {
     /// The Manhattan length of the vector.
-    pub fn len(&self) -> usize {
+    pub fn length(&self) -> usize {
         (self.dx.abs() + self.dy.abs()) as usize
     }
 }
@@ -89,7 +89,7 @@ impl Point {
     }
     /// Returns the distance between this point and another.
     fn distance(self, other: Point) -> usize {
-        (other - self).len()
+        (other - self).length()
     }
     /// Indicates whether this point is adjacent to the given point (i.e. one space away).
     fn is_adjacent(self, other: Point) -> bool {
@@ -256,7 +256,7 @@ fn find_move(
                 if positions.contains(maybe) {
                     return path.remove(&point);
                 } else if grid[*maybe] == Space::Open {
-                    let previous = path.get(&point).unwrap_or(maybe).clone();
+                    let previous = *path.get(&point).unwrap_or(maybe);
                     path.insert(*maybe, previous);
                     queue.push(Reverse((depth + 1, *maybe)));
                 }
@@ -306,7 +306,7 @@ impl Fight {
                 .enumerate()
                 .filter(|(_, p)| p.fealty == opposition && p.is_alive())
                 .collect::<Vec<_>>();
-            if targets.len() == 0 {
+            if targets.is_empty() {
                 return false;
             }
             targets.sort_by(|a, b| {
@@ -412,7 +412,7 @@ pub fn optimize(fight: &Fight) -> usize {
             return ticks * (total_health as usize);
         }
     }
-    return 0;
+    0
 }
 
 /// Solve the puzzle using the input in `puzzles/15.txt`.

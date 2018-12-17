@@ -6,7 +6,8 @@ const AXIS: usize = 300;
 
 /// A (300x300) power grid of some sort.
 pub struct Grid {
-    serial: u32,
+    /// The serial number of the grid.
+    pub serial: u32,
     cells: [i32; AXIS * AXIS],
 }
 
@@ -25,11 +26,11 @@ impl Grid {
             cells: [0; AXIS * AXIS],
         };
         for j in 0..AXIS {
-            let mut row = &mut grid[j];
+            let row = &mut grid[j];
             let y = (j + 1) as u32;
-            for i in 0..AXIS {
+            for (i, v) in row.iter_mut().take(AXIS).enumerate() {
                 let x = (i + 1) as u32;
-                row[i] = power(serial, x, y);
+                *v = power(serial, x, y);
             }
         }
         grid
@@ -54,9 +55,9 @@ impl Grid {
         let mut point = (1, 1);
         for j in 0..=(AXIS - n) {
             for i in 0..=(AXIS - n) {
-                let mut sum: i32 = self[j][i..=(i + n - 1)].iter().sum();
+                let mut sum: i32 = self[j][i..(i + n)].iter().sum();
                 for k in 1..n {
-                    sum += self[j + k][i..=(i + n - 1)].iter().sum::<i32>();
+                    sum += self[j + k][i..(i + n)].iter().sum::<i32>();
                 }
                 if sum > highest {
                     highest = sum;

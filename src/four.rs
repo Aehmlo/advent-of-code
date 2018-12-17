@@ -17,7 +17,9 @@ pub enum Action {
 }
 
 /// Finds the sleepiest guard and when they're most frequently asleep.
-pub fn find_sleepy(times: &HashMap<GuardId, Vec<u8>>) -> (GuardId, u8) {
+pub fn find_sleepy<S: ::std::hash::BuildHasher>(
+    times: &HashMap<GuardId, Vec<u8>, S>,
+) -> (GuardId, u8) {
     let mut sleepiest = 0;
     let mut guard = 0;
     let mut minute = 0;
@@ -43,7 +45,9 @@ pub fn find_sleepy(times: &HashMap<GuardId, Vec<u8>>) -> (GuardId, u8) {
 }
 
 /// Finds the guard that is most consistently asleep.
-pub fn find_consistent(times: &HashMap<GuardId, Vec<u8>>) -> (GuardId, u8) {
+pub fn find_consistent<S: ::std::hash::BuildHasher>(
+    times: &HashMap<GuardId, Vec<u8>, S>,
+) -> (GuardId, u8) {
     let mut cons = 0;
     let mut guard = 0;
     let mut minute = 0;
@@ -109,9 +113,9 @@ pub fn solve() {
     events.sort();
     let times = sleep_times(&events);
     let sleepy = find_sleepy(&times);
-    let sleepy = sleepy.0 as u32 * sleepy.1 as u32;
+    let sleepy = u32::from(sleepy.0) * u32::from(sleepy.1);
     let consistent = find_consistent(&times);
-    let consistent = consistent.0 as u32 * consistent.1 as u32;
+    let consistent = u32::from(consistent.0) * u32::from(consistent.1);
     println!("Day four solutions: {}, {}", sleepy, consistent);
 }
 

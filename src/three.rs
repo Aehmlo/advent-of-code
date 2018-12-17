@@ -33,11 +33,11 @@ impl FromStr for Claim {
         let mut spec = spec.split(": ");
         let pos = spec.next().expect("No position given.");
         let size = spec.next().expect("No size given.");
-        let mut origin = pos.split(",").map(|e| e.parse::<usize>().unwrap());
+        let mut origin = pos.split(',').map(|e| e.parse::<usize>().unwrap());
         let x = origin.next().expect("No x-offset given.");
         let y = origin.next().expect("No y-offset given.");
         let origin = Point(x, y);
-        let mut size = size.split("x").map(|e| e.parse::<usize>().unwrap());
+        let mut size = size.split('x').map(|e| e.parse::<usize>().unwrap());
         let width = size.next().expect("No width given.");
         let height = size.next().expect("No height given.");
         Ok(Self {
@@ -74,14 +74,14 @@ fn claimed_area(claims: impl Iterator<Item = Claim>) -> HashMap<Point, usize> {
 }
 
 /// Part 1: find the total overlap area of all claims.
-pub fn overlapping_area(grid: &HashMap<Point, usize>) -> usize {
+pub fn overlapping_area<S: ::std::hash::BuildHasher>(grid: &HashMap<Point, usize, S>) -> usize {
     grid.values().filter(|a| **a > 1).count()
 }
 
 /// Part 2: find a claim which does not overlap with any other claim.
-pub fn usable_claims(
+pub fn usable_claims<S: ::std::hash::BuildHasher>(
     claims: impl Iterator<Item = Claim>,
-    grid: HashMap<Point, usize>,
+    grid: HashMap<Point, usize, S>,
 ) -> impl Iterator<Item = Claim> {
     claims.filter(move |claim| {
         let points = claim.points();

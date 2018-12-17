@@ -413,7 +413,7 @@ impl FromStr for Processor {
     type Err = ();
     fn from_str(s: &str) -> Result<Self, ()> {
         let mut registers = s.split(',').map(|s| {
-            (s.trim().replace((|c| c == ']' || c == '['), ""))
+            (s.trim().replace(|c| c == ']' || c == '[', ""))
                 .parse::<usize>()
                 .unwrap()
         });

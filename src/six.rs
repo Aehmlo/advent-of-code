@@ -4,7 +4,7 @@
 pub type Point = (u16, u16);
 
 /// Returns the Manhattan distance between two points.
-pub fn distance(one: &Point, other: &Point) -> u16 {
+pub fn distance(one: Point, other: Point) -> u16 {
     ((one.0 as i16 - other.0 as i16).abs() + (one.1 as i16 - other.1 as i16).abs()) as u16
 }
 
@@ -39,7 +39,7 @@ pub fn find_biggest(points: &mut Vec<Point>) -> u16 {
             let mut distances = points
                 .iter()
                 .enumerate()
-                .map(|(i, p)| (distance(&p, &point), i))
+                .map(|(i, p)| (distance(*p, point), i))
                 .collect::<Vec<_>>();
             distances.sort();
             if distances[0].0 != distances[1].0 {
@@ -66,7 +66,7 @@ pub fn close_points(points: &mut Vec<Point>, delta: u16) -> usize {
     let mut total = 0;
     for i in min_x..=max_x {
         for j in min_y..=max_y {
-            let distance: u16 = points.iter().map(|p| distance(&p, &(i, j))).sum();
+            let distance: u16 = points.iter().map(|p| distance(*p, (i, j))).sum();
             if distance < delta {
                 total += 1;
             }

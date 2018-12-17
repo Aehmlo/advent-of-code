@@ -23,8 +23,8 @@ impl Into<char> for Step {
 
 impl Step {
     /// Returns the time necessary to complete the step.
-    pub fn time(&self) -> u16 {
-        let c: char = (*self).into();
+    pub fn time(self) -> u16 {
+        let c: char = self.into();
         c as u16 - 'A' as u16 + 1
     }
 }
@@ -43,7 +43,9 @@ pub fn tree(input: &str) -> HashMap<Step, Vec<Step>> {
 }
 
 /// Resolves the dependency tree to give the order in which to proceed.
-pub fn resolve(tree: &HashMap<Step, Vec<Step>>) -> impl Iterator<Item = Step> {
+pub fn resolve<S: ::std::hash::BuildHasher>(
+    tree: &HashMap<Step, Vec<Step>, S>,
+) -> impl Iterator<Item = Step> {
     let mut remaining = tree.keys().clone().collect::<BTreeSet<_>>();
     let mut resolved: HashSet<Step> = HashSet::new();
     let mut order = Vec::new();
@@ -67,7 +69,7 @@ pub fn resolve(tree: &HashMap<Step, Vec<Step>>) -> impl Iterator<Item = Step> {
 }
 
 /// Returns the order of steps to perform as a string.
-pub fn steps(tree: &HashMap<Step, Vec<Step>>) -> String {
+pub fn steps<S: ::std::hash::BuildHasher>(tree: &HashMap<Step, Vec<Step>, S>) -> String {
     resolve(&tree)
         .map(|s| {
             let c: char = s.into();
@@ -101,7 +103,11 @@ impl Worker {
 }
 
 /// Returns the necessary time to complete the given work with the given number of workers.
-pub fn time(tree: &HashMap<Step, Vec<Step>>, no_workers: usize, base_time: u16) -> u16 {
+pub fn time<S: ::std::hash::BuildHasher>(
+    tree: &HashMap<Step, Vec<Step>, S>,
+    no_workers: usize,
+    base_time: u16,
+) -> u16 {
     let mut remaining = tree.keys().clone().collect::<BTreeSet<_>>();
     let mut done = HashSet::new();
     let mut workers: Vec<Worker> = vec![Worker::default(); no_workers];
