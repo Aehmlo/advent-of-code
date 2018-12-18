@@ -1,6 +1,7 @@
 //! Advent of Code 2018 solutions.
 
 pub mod eight;
+pub mod eighteen;
 pub mod eleven;
 pub mod fifteen;
 pub mod five;
