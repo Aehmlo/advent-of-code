@@ -1,0 +1,8 @@
+[package]
+name = "aoc-2019"
+version = "0.1.0"
+authors = ["Alex Hamilton <alex.hamilton@ou.edu>"]
+edition = "2018"
+
+[dependencies]
+clap = "2.33.0"
