@@ -4,6 +4,7 @@ use std::str::FromStr;
 const ALL: &'static str = "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25";
 
 mod one;
+mod two;
 
 fn input(day: u8) -> Option<String> {
     let path = format!("../inputs/{}.txt", day);
@@ -13,6 +14,7 @@ fn input(day: u8) -> Option<String> {
 fn run(day: u8) -> Option<[String; 2]> {
     input(day).and_then(|input| match day {
         1 => one::run(input).into(),
+        2 => two::run(input).into(),
         _ => None,
     })
 }
