@@ -3,6 +3,7 @@ use std::str::FromStr;
 
 const ALL: &'static str = "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25";
 
+mod eight;
 mod five;
 mod four;
 mod one;
@@ -25,6 +26,7 @@ fn run(day: u8) -> Option<[String; 2]> {
         5 => five::run(input).into(),
         6 => six::run(input).into(),
         7 => seven::run(input).into(),
+        8 => eight::run(input).into(),
         _ => None,
     })
 }
